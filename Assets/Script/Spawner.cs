@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawnEnemy(timeinterval, EnemyPrefabs));
+        // It is like multitasking...
     }
 
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
@@ -18,5 +19,6 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(interval);
         GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-5f, 5), Random.Range(-4f, 4f), 0), Quaternion.identity);
         StartCoroutine(spawnEnemy(interval, enemy));
+        // Interval means spawning each object after a particular time gap 
     }
 }
